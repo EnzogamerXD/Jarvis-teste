@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Assistant - Gemini Vision</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 JARVIS ASSISTANT</h1>
+            <p class="subtitle">Powered by Gemini Vision AI</p>
+        </header>
+
+        <!-- Seção de Configuração -->
+        <div class="api-key-section">
+            <strong>⚙️ Configuração da API:</strong>
+            <input 
+                type="password" 
+                id="geminiApiKey" 
+                placeholder="Cole sua Gemini API Key aqui"
+                autocomplete="off"
+            >
+            <p class="help-text">
+                Pegue sua chave em: <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>
+            </p>
+        </div>
+
+        <!-- Input de Busca -->
+        <div class="search-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="nameInput" 
+                    placeholder="Digite o nome da pessoa... (ex: Antonio Eduardo)"
+                    autocomplete="off"
+                >
+                <button class="btn btn-primary" onclick="searchPerson()">
+                    🔍 Buscar
+                </button>
+            </div>
+        </div>
+
+        <!-- Botão Gemini Vision -->
+        <div class="gemini-section">
+            <button class="btn btn-gemini" id="geminiBtn" onclick="activateGeminiVision()">
+                🤖 ATIVAR GEMINI VISION
+            </button>
+        </div>
+
+        <!-- Status -->
+        <div id="status" class="status-box"></div>
+
+        <!-- Container do Telegram -->
+        <div id="telegramContainer" class="telegram-container">
+            <div class="telegram-header">
+                <h3>📱 Telegram Web</h3>
+                <div class="telegram-controls">
+                    <button class="btn btn-small" onclick="refreshTelegram()">🔄 Atualizar</button>
+                    <button class="btn btn-small btn-close" onclick="closeTelegram()">✖ Fechar</button>
+                </div>
+            </div>
+            <iframe id="telegramFrame" src="" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+        </div>
+
+        <!-- Log do Gemini -->
+        <div id="geminiLog" class="gemini-log">
+            <div class="log-header">
+                <h4>📊 Log de Atividades</h4>
+                <button class="btn btn-small" onclick="clearLog()">🗑️ Limpar</button>
+            </div>
+            <div id="logContent" class="log-content"></div>
+        </div>
+
+        <!-- Visualizador de TXT -->
+        <div id="txtViewer" class="txt-viewer">
+            <div class="txt-header">
+                <h3>📄 Resultado da Consulta</h3>
+                <div class="txt-controls">
+                    <button class="btn btn-small" onclick="copyTxtContent()">📋 Copiar</button>
+                    <button class="btn btn-small" onclick="downloadTxt()">💾 Baixar</button>
+                    <button class="btn btn-small btn-close" onclick="closeTxtViewer()">✖ Fechar</button>
+                </div>
+            </div>
+            <div id="txtContent" class="txt-content"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
